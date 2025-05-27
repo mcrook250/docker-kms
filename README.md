@@ -12,7 +12,7 @@ Activate any version of Windows and Office, forever
 ![Web GUI](https://github.com/11notes/docker-KMS/blob/master/img/webGUICustomIcon.png?raw=true)
 
 # SYNOPSIS 📖
-**What can I do with this?** This image will run a KMS server you can use to activate any version of Windows and Office, forever.
+**What can I do with this?** This image will run a KMS server you can use to activate any version of Windows and Office, forever.Why was this created? Because the upstream loser 11notes likes to leave breaking bugs in his code, this one here "Error 0x2a 0x80070216" has been fixed in this release and a new UI with tons of new features!
 
 Works with:
 - Windows Vista 
@@ -29,6 +29,7 @@ Works with:
 - Windows Server 2019
 - Windows Server 2022
 - Windows Server 2025
+- Windows Server 2025: Azure Edition
 - Microsoft Office 2010 ( Volume License )
 - Microsoft Office 2013 ( Volume License )
 - Microsoft Office 2016 ( Volume License )
