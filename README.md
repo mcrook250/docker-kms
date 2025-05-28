@@ -77,13 +77,14 @@ volumes:
 
 # EXAMPLE
 ## Windows Server 2025 Datacenter. List of [GVLK](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys)
+Add your key via cmd
 ```cmd
 slmgr /ipk D764K-2NDRG-47T6Q-P8T8W-YP6DF
 ```
 Add your KMS server via cmd
-'''cmd
-slmgr /skms kms.yourdomain.tld:1688
-'''
+```cmd
+slmgr /skms kms.yourdomain.com:1688
+```
 
 Add your KMS server information to server via registry
 ```powershell
@@ -107,7 +108,7 @@ slmgr /ato
 | `home` | /kms | home directory of user docker |
 | `database` | /kms/var/kms.db | SQlite database holding all client data |
 
-*Alot of these don't do anything yet, however they will. All default values have been preserved
+*Alot of these don't do anything yet, however they will at some point. All default values have been preserved and hardcoded.
 
 
 # ENVIRONMENT 📝
@@ -119,9 +120,9 @@ slmgr /ato
 | `ACTIVATIONINTERVAL` | Retry unsuccessful after N minutes | 120 (2 hours) |
 | `RENEWALINTERVAL` | re-activation after N minutes | 259200 (180 days) |
 | `LOGLEVEL` | CRITICAL, ERROR, WARNING, INFO, DEBUG, MININFO | INFO |
-| 'CLIENT_COUNT' | A number >=25 is required to enable activation of client OSes; for server OSes and Office >=5 | 26 |
-| 'IP' | The IP address to listen on. | 0.0.0.0 |
-| 'LOGFILE' | Use this flag to set an output Logfile. | /var/log/pykms_logserver.log |
+| `CLIENT_COUNT` | A number >=25 is required to enable activation of client OSes; for server OSes and Office >=5 | 26 |
+| `IP` | The IP address to listen on. | 0.0.0.0 |
+| `LOGFILE` | Use this flag to set an output Logfile. | /var/log/pykms_logserver.log |
 
 *These should all work as they are ported right from py-kms 'next' branch
 
@@ -140,6 +141,7 @@ If you still insist on having the last stable release of this app, simply use th
 # REGISTRIES ☁️
 ```
 docker pull mcrook250/ms-kms:latest
+docker pull mcrook250/kms-gui:latest
 docker pull ghcr.io/11notes/kms:1.0.1 <- old not used anymore
 docker pull quay.io/11notes/kms:1.0.1 <- old and not used anymore
 ```
