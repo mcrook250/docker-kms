@@ -100,6 +100,7 @@ slmgr /ato
 | `gid` | 1000 | [group identifier](https://en.wikipedia.org/wiki/Group_identifier) |
 | `home` | /kms | home directory of user docker |
 | `database` | /kms/var/kms.db | SQlite database holding all client data |
+
 *Alot of these don't do anything yet, however they will. All default values have been preserved
 
 
@@ -112,6 +113,7 @@ slmgr /ato
 | `ACTIVATIONINTERVAL` | Retry unsuccessful after N minutes | 120 (2 hours) |
 | `RENEWALINTERVAL` | re-activation after N minutes | 259200 (180 days) |
 | `LOGLEVEL` | CRITICAL, ERROR, WARNING, INFO, DEBUG, MININFO | INFO |
+
 *These should all work as they are ported right from py-kms 'next' branch
 
 # MAIN TAGS 🏷️
