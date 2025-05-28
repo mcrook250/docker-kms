@@ -9,7 +9,7 @@ Activate any version of Windows and Office, forever
 
 ![Windows Server 2025](https://github.com/11notes/docker-KMS/blob/master/img/WindowsSRV2025.png?raw=true)
 
-![Web GUI](https://github.com/11notes/docker-KMS/blob/master/img/webGUICustomIcon.png?raw=true)
+![Web GUI](https://github.com/11notes/docker-KMS/blob/master/img/kms-dash1.jpg?raw=true)
 
 # SYNOPSIS 📖
 **What can I do with this?** This image will run a KMS server you can use to activate any version of Windows and Office, forever. Why was this created? Because the upstream loser 11notes likes to leave breaking bugs in his code, this one here "Error 0x2a 0x80070216" has been fixed in this release and has a new UI with tons of new features!
@@ -39,16 +39,18 @@ Works with:
 
 # VOLUMES 📁
 * **/kms/var** - Directory of the activation database
+* **/var:/stb** - This is new and used by webUI to get the version of the kms server
 
 # COMPOSE ✂️
 ```yaml
 name: "kms"
 services:
   kms:
-    image: "mcrook250/kms:latest"
+    image: "mcrook250/ms-kms:latest"
     environment:
       TZ: "Europe/Zurich"
     volumes:
+      - "./var:/stb"
       - "var:/kms/var"
     ports:
       - "1688:1688/tcp"
