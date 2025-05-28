@@ -50,7 +50,7 @@ services:
     environment:
       TZ: "Europe/Zurich"
     volumes:
-      - "./var:/stb"
+      - "/var:/stb"
       - "var:/kms/var"
     ports:
       - "1688:1688/tcp"
