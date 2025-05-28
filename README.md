@@ -9,7 +9,7 @@ Activate any version of Windows and Office, forever
 
 ![Windows Server 2025](https://github.com/11notes/docker-KMS/blob/master/img/WindowsSRV2025.png?raw=true)
 
-![Web GUI](https://github.com/11notes/docker-KMS/blob/master/img/kms-dash1.jpg?raw=true)
+![Web GUI](https://github.com/mcrook250/docker-KMS/blob/master/img/kms-dash1.jpg?raw=true)
 
 # SYNOPSIS 📖
 **What can I do with this?** This image will run a KMS server you can use to activate any version of Windows and Office, forever. Why was this created? Because the upstream loser 11notes likes to leave breaking bugs in his code, this one here "Error 0x2a 0x80070216" has been fixed in this release and has a new UI with tons of new features!
