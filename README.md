@@ -79,8 +79,12 @@ volumes:
 ## Windows Server 2025 Datacenter. List of [GVLK](https://learn.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys)
 ```cmd
 slmgr /ipk D764K-2NDRG-47T6Q-P8T8W-YP6DF
-slmgr /skms kms.yourdomain.tld:1688
 ```
+Add your KMS server via cmd
+'''cmd
+slmgr /skms kms.yourdomain.tld:1688
+'''
+
 Add your KMS server information to server via registry
 ```powershell
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform" -Name "KeyManagementServiceName" -Value "KMS_IP"
