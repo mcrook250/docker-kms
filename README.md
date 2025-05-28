@@ -12,7 +12,7 @@ Activate any version of Windows and Office, forever
 ![Web GUI](https://github.com/11notes/docker-KMS/blob/master/img/webGUICustomIcon.png?raw=true)
 
 # SYNOPSIS 📖
-**What can I do with this?** This image will run a KMS server you can use to activate any version of Windows and Office, forever.Why was this created? Because the upstream loser 11notes likes to leave breaking bugs in his code, this one here "Error 0x2a 0x80070216" has been fixed in this release and a new UI with tons of new features!
+**What can I do with this?** This image will run a KMS server you can use to activate any version of Windows and Office, forever. Why was this created? Because the upstream loser 11notes likes to leave breaking bugs in his code, this one here "Error 0x2a 0x80070216" has been fixed in this release and has a new UI with tons of new features!
 
 Works with:
 - Windows Vista 
@@ -45,7 +45,7 @@ Works with:
 name: "kms"
 services:
   kms:
-    image: "mcrook250/kms:1.0.1"
+    image: "mcrook250/kms:latest"
     environment:
       TZ: "Europe/Zurich"
     volumes:
@@ -55,7 +55,7 @@ services:
     restart: "always"
 
   gui:
-    image: "mcrook250/kms-gui:1.0.1"
+    image: "mcrook250/kms-gui:latest"
     depends_on:
       app:
         condition: "service_healthy"
@@ -98,16 +98,19 @@ slmgr /ato
 | `gid` | 1000 | [group identifier](https://en.wikipedia.org/wiki/Group_identifier) |
 | `home` | /kms | home directory of user docker |
 | `database` | /kms/var/kms.db | SQlite database holding all client data |
+*Alot of these don't do anything yet, however they will. All default values have been preserved
+
 
 # ENVIRONMENT 📝
 | Parameter | Value | Default |
 | --- | --- | --- |
 | `TZ` | [Time Zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) | |
 | `DEBUG` | Will activate debug option for container image and app (if available) | |
-| `KMS_LOCALE` | see Microsoft LICD specification | 1033 (en-US) |
-| `KMS_ACTIVATIONINTERVAL` | Retry unsuccessful after N minutes | 120 (2 hours) |
-| `KMS_RENEWALINTERVAL` | re-activation after N minutes | 259200 (180 days) |
-| `KMS_LOGLEVEL` | CRITICAL, ERROR, WARNING, INFO, DEBUG, MININFO | INFO |
+| `LOCALE` | see Microsoft LICD specification | 1033 (en-US) |
+| `ACTIVATIONINTERVAL` | Retry unsuccessful after N minutes | 120 (2 hours) |
+| `RENEWALINTERVAL` | re-activation after N minutes | 259200 (180 days) |
+| `LOGLEVEL` | CRITICAL, ERROR, WARNING, INFO, DEBUG, MININFO | INFO |
+*These should all work as they are ported right from py-kms 'next' branch
 
 # MAIN TAGS 🏷️
 These are the main tags for the image. There is also a tag for each commit and its shorthand sha256 value.
@@ -115,30 +118,28 @@ These are the main tags for the image. There is also a tag for each commit and i
 * [1.0.1](https://hub.docker.com/r/11notes/kms/tags?name=1.0.1)
 * [1.0.1-unraid](https://hub.docker.com/r/11notes/kms/tags?name=1.0.1-unraid)
 
-### There is no latest tag, what am I supposed to do about updates?
-It is of my opinion that the ```:latest``` tag is super dangerous. Many times, I’ve introduced **breaking** changes to my images. This would have messed up everything for some people. If you don’t want to change the tag to the latest [semver](https://semver.org/), simply use the short versions of [semver](https://semver.org/). Instead of using ```:1.0.1``` you can use ```:1``` or ```:1.0```. Since on each new version these tags are updated to the latest version of the software, using them is identical to using ```:latest``` but at least fixed to a major or minor version.
+### Please use the :latest tag to keep your containers up to date
+There is a reminder in the web UI to remind you when its time to update.... like any normal docker app, eg. the arr family. Why should you keep up with the latest release? Because I believe in fixing bugs, adding improvements and providing a overall pleasant user experience, no fuss, no hassle.
 
 If you still insist on having the bleeding edge release of this app, simply use the ```:rolling``` tag, but be warned! You will get the latest version of the app instantly, regardless of breaking changes or security issues or what so ever. You do this at your own risk!
 
 # REGISTRIES ☁️
 ```
-docker pull 11notes/kms:1.0.1
-docker pull ghcr.io/11notes/kms:1.0.1
-docker pull quay.io/11notes/kms:1.0.1
+docker pull mcrook250/ms-kms:latest
+docker pull ghcr.io/11notes/kms:1.0.1 <- old not used anymore
+docker pull quay.io/11notes/kms:1.0.1 <- old and not used anymore
 ```
 
 # UNRAID VERSION 🟠
-This image supports unraid by default. Simply add **-unraid** to any tag and the image will run as 99:100 instead of 1000:1000 causing no issues on unraid. Enjoy.
+11notes - "This image supports unraid by default. Simply add **-unraid** to any tag and the image will run as 99:100 instead of 1000:1000 causing no issues on unraid. Enjoy."
+This should just work out of the box. No messing around, no special version. Report if you have bugs!
 
 # SOURCE 💾
-* [11notes/kms](https://github.com/11notes/docker-KMS)
-
-# PARENT IMAGE 🏛️
-* [11notes/alpine:stable](https://hub.docker.com/r/11notes/alpine)
+* [mcrook250/ms-kms](https://github.com/mcrook250/docker-KMS)
 
 # BUILT WITH 🧰
-* [11notes/py-kms](https://github.com/11notes/fork-py-kms)
-* [11notes/util](https://github.com/11notes/docker-util)
+* [mcrook250/ms-kms](https://github.com/mcrook250/ms-kms)
+* [mcrook250/kms-gui](https://github.com/mcrook250/kms-gui)
 
 # GENERAL TIPS 📌
 > [!TIP]
@@ -148,7 +149,7 @@ This image supports unraid by default. Simply add **-unraid** to any tag and the
 * [Microsoft LICD](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a)
 * Use [11notes/kms-gui](https://github.com/11notes/docker-kms-gui) if you want to see the clients you activated in a nice web GUI
 
-# ElevenNotes™️
-This image is provided to you at your own risk. Always make backups before updating an image to a different version. Check the [releases](https://github.com/11notes/docker-kms/releases) for breaking changes. If you have any problems with using this image simply raise an [issue](https://github.com/11notes/docker-kms/issues), thanks. If you have a question or inputs please create a new [discussion](https://github.com/11notes/docker-kms/discussions) instead of an issue. You can find all my other repositories on [github](https://github.com/11notes?tab=repositories).
+# BlueWave™️
+This image is provided to you at your own risk. Always make backups before updating an image to a different version. Check the [releases](https://github.com/mcrook250/docker-kms/releases) for breaking changes. If you have any problems with using this image simply raise an [issue](https://github.com/mcrook250/docker-kms/issues), thanks. If you have a question or inputs please create a new [discussion](https://github.com/mcrook250/docker-kms/discussions) instead of an issue. You can find all my other repositories on [github](https://github.com/11notes?tab=repositories).
 
 *created 21.05.2025, 08:48:52 (CET)*
