@@ -128,7 +128,7 @@ slmgr /ato
 | `CLIENT_COUNT` | A number >=25 is required to enable activation of client OSes; for server OSes and Office >=5 | 26 |
 | `IP` | The IP address to listen on. | 0.0.0.0 |
 | `ENABLE_DEL` | Enables the delete function in the gui. | False |
-| `AUTO_PURGE` | Automatically remove stale records after 210 days. | RENEWALINTERVAL + 30 days |
+| `AUTO_PURGE` | Automatically remove stale records after 210 days. RENEWALINTERVAL + 30 days | False |
 | `LOGFILE` | Use this flag to set an output Logfile. | /var/log/pykms_logserver.log |
 
 *These should all work as they are ported right from py-kms 'next' branch
@@ -174,6 +174,6 @@ This should just work out of the box. No messing around, no special version. Rep
 * Look for easter eggs, I have and always will include these little goodies!
 
 # BlueWave™️
-This image is provided to you at your own risk. Always make backups before updating an image to a different version. Check the [releases](https://github.com/mcrook250/docker-kms/releases) for breaking changes. If you have any problems with using this image simply raise an [issue](https://github.com/mcrook250/docker-kms/issues), thanks. If you have a question or inputs please create a new [discussion](https://github.com/mcrook250/docker-kms/discussions) instead of an issue. You can find all my other repositories on [github](https://github.com/11notes?tab=repositories).
+This image is provided to you at your own risk. Always make backups before updating an image to a different version. Check the [releases](https://github.com/mcrook250/docker-kms/releases) for breaking changes. If you have any problems with using this image simply raise an [issue](https://github.com/mcrook250/docker-kms/issues), thanks. If you have a question or inputs please create a new [discussion](https://github.com/mcrook250/docker-kms/discussions) instead of an issue. You can find all my other repositories on [github](https://github.com/mcrook250?tab=repositories).
 
 *created 21.05.2025, 08:48:52 (CET)*
