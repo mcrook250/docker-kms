@@ -44,7 +44,7 @@ Works with:
 
 # VOLUMES 📁
 * **/kms/var** - Directory of the activation database
-* **/var:/stb** - This is new and used by webUI to get the version of the kms server
+* **/var:/stb** - This is new and used by webUI to get the version of the kms server (this is no longer needed after version 2.0.1)
 
 # COMPOSE ✂️
 ```yaml
@@ -54,8 +54,8 @@ services:
     image: "mcrook250/ms-kms:latest"
     environment:
       TZ: "Europe/Zurich"
+      AUTO_PURGE: "True"
     volumes:
-      - "var:/stb"
       - "var:/kms/var"
     ports:
       - "1688:1688/tcp"
@@ -69,6 +69,7 @@ services:
         restart: true
     environment:
       TZ: "Europe/Zurich"
+      ENABLE_DEL: "False"
     volumes:
       - "var:/kms/var"
     ports:
@@ -126,6 +127,8 @@ slmgr /ato
 | `LOGLEVEL` | CRITICAL, ERROR, WARNING, INFO, DEBUG, MININFO | INFO |
 | `CLIENT_COUNT` | A number >=25 is required to enable activation of client OSes; for server OSes and Office >=5 | 26 |
 | `IP` | The IP address to listen on. | 0.0.0.0 |
+| `ENABLE_DEL` | Enables the delete function in the gui. | False |
+| `AUTO_PURGE` | Automatically remove stale records after 210 days. | RENEWALINTERVAL + 30 days |
 | `LOGFILE` | Use this flag to set an output Logfile. | /var/log/pykms_logserver.log |
 
 *These should all work as they are ported right from py-kms 'next' branch
