@@ -1,4 +1,4 @@
-![banner](https://github.com/11notes/defaults/blob/main/static/img/banner.png?raw=true)
+![banner](https://github.com/mcrook250/docker-kms/blob/master/img/banner.png?raw=true)
 
 ### THIS IS A WORK IN PROGRESS
 Lots of stuff left over from 11notes, please give me time to update
@@ -127,7 +127,6 @@ slmgr /ato
 | `LOGLEVEL` | CRITICAL, ERROR, WARNING, INFO, DEBUG, MININFO | INFO |
 | `CLIENT_COUNT` | A number >=25 is required to enable activation of client OSes; for server OSes and Office >=5 | 26 |
 | `IP` | The IP address to listen on. | 0.0.0.0 |
-| `ENABLE_DEL` | Enables the delete function in the gui. | False |
 | `AUTO_PURGE` | Automatically remove stale records after 210 days. RENEWALINTERVAL + 30 days | False |
 | `LOGFILE` | Use this flag to set an output Logfile. | /var/log/pykms_logserver.log |
 
